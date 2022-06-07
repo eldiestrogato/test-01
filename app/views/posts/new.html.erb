@@ -1,16 +1,19 @@
 <h2>Adding new post</h2>
+
 <%= form_for :post, url: posts_path do |f| %>
+
 <p>
     Name <br>
     <%= f.text_field(:title, {:class => 'form-control'}) %>
 </p>
+
 <p>
     Text Area <br>
     <%= f.text_field(:body, {:class => 'form-control'}) %>
-
 </p>
+
 <p>
-    <%= f.submit({:class => 'btn btn-success'}) %>  
+    <%= f.submit({:class => 'btn btn-success'}) %>
 </p>
 
 <% end %>
