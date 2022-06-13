@@ -1,6 +1,6 @@
-<h2>Adding new post</h2>
+<h2>Editing post</h2>
 
-<%= form_for :post, url: post_path do |f| %>
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
 
   <% if @post.errors.any? %>
      <% @post.errors.full_messages.each do |msg| %>
