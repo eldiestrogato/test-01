@@ -2,6 +2,11 @@
 
 <%= form_for :post, url: posts_path do |f| %>
 
+  <% if @post.errors.any? %>
+     <% @post.errors.full_messages.each do |msg| %>
+       <div class="alert alert-danger"><%= msg %></div>
+     <% end %>
+  <% end %>
 <p>
     Name <br>
     <%= f.text_field(:title, {:class => 'form-control'}) %>
@@ -9,7 +14,7 @@
 
 <p>
     Text Area <br>
-    <%= f.text_field(:body, {:class => 'form-control'}) %>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
 </p>
 
 <p>
