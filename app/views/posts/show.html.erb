@@ -2,4 +2,33 @@
 <p><%= @post.body %></p>
 <hr>
 <%= link_to "Edit", edit_post_path(@post), :class => 'btn btn-warning' %>
-<%= link_to "Delete", post_path(@post), method: :delete, :class => 'btn btn-danger' %>
+<%= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are U sure?"}, :class => 'btn btn-danger' %>
+
+<hr>
+
+<h2 class="text-center">All Comments</h2><br>
+<% @post.comments.each do |comment| %>
+<div class="alert alert-light">
+  <h3><strong><%=  comment.username %></strong>: <%= comment.body %></h3>
+</div>
+<% end %>
+
+<hr>
+
+<h3>Add your Comment</h3>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+<p>
+    Username <br>
+    <%= f.text_field(:username, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    Text <br>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+</p>
+
+<p>
+    <%= f.submit("Add your comment", {:class => 'btn btn-warning'}) %>
+</p>
+
+<% end %>
