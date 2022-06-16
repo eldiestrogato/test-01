@@ -1,10 +1,12 @@
-<h2 class="text-center">All posts</h2><br>
+<br>
+<h2 class="text-center">All posts</h2>
+<br>
 <% @post.each do |post| %>
 <div class="alert alert-dark">
   <h3><%=  post.title %></h3>
   <p><%=  post.body %></p>
   <hr>
-  <%= link_to "read more...", post_path(post), :class =>'btn btn-outline-secondary' %>
-  
+  <%= link_to "read more...", post_path(post), :class =>'btn btn-danger' %>
+
 </div>
 <% end %>
