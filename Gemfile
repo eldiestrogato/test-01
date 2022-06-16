@@ -76,4 +76,4 @@ group :test do
   gem "webdrivers"
 end
 gem 'sass-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '3.2.0.2'
