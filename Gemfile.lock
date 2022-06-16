@@ -223,7 +223,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bootstrap-sass
+  bootstrap-sass (= 3.4.1)
   capybara
   importmap-rails
   jbuilder
