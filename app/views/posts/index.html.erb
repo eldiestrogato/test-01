@@ -4,7 +4,11 @@
 <% @post.each do |post| %>
 <div class="alert alert-dark">
   <h3><%=  post.title %></h3>
-  <p><%=  post.body %></p>
+  <div class="container-fluid" style="height: 20rem;">
+
+
+  <p class="overflow-hidden" style="height: 20rem;"><%=  post.body %></p>
+  </div>
   <hr>
   <%= link_to "read more...", post_path(post), :class =>'btn btn-danger' %>
 

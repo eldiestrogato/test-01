@@ -1,10 +1,26 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
+<!-- Title -->
+<br>
+<h1 class="text-center"><%= @post.title %></h1>
+<br>
+
+<!-- Body -->
+
+<div class="card" style="width: 80rem;">
+    <div class="card-body p-3 mb-2 bg-dark text-white" >
+
+            <p class="text-wrap card-text text-break" style="width: 75rem;"> <%= simple_format(@post.body) %> </p>
+
+    </div>
+</div>
+
+
+
+<!-- Buttons -->
 <hr>
-<%= link_to "Edit post", edit_post_path(@post), :class => 'btn btn-warning' %>
-<%= link_to "Delete post", post_path(@post),
-            method: :delete,
-            data: { confirm: 'Are U sure?' }, :class => 'btn btn-danger' %>
+<%= link_to "Edit post", edit_post_path(@post), data: { confirm: 'Вы уверены?' }, class: "btn btn-outline-primary" %>
+<%= button_to "Delete post", post_path(@post), method: :delete, data: { confirm: 'Вы уверены?' }, :class => "btn btn-outline-danger" %>
+
+<!-- Comments -->
 
 <hr>
 <br>
