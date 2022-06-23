@@ -1,5 +1,5 @@
-  # source "http://rubygems.org"
-source "https://rails-assets.org"
+source "http://rubygems.org"
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.4"
@@ -76,7 +76,10 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem 'jquery-rails'
   # gem 'sass-rails'
   # gem 'bootstrap-sass', '3.4.1'
+source "https://rails-assets.org" do
 gem 'rails-assets-bootstrap'
 gem 'rails-assets-tether'
+end

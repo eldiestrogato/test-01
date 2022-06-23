@@ -1,9 +1,5 @@
 class PostsController < ApplicationController
 
-  http_basic_authenticate_with name: "nonamer", password: "qwe123",
-  except: [:index, :show]
-
-
 
 
   def index
@@ -26,7 +22,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
       @post.destroy
 
-      redirect_to posts_path
+      redirect_to posts_path, notice: 'Post DELETED!'
 
   end
 
@@ -34,7 +30,7 @@ class PostsController < ApplicationController
       @post = Post.find(params[:id])
 
       if @post.update(post_params)
-        redirect_to @post
+        redirect_to @post, notice: 'Post Updated!'
       else
         render 'edit'
       end

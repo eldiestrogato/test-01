@@ -1,6 +1,9 @@
 <br>
 <h2 class="text-center">All posts</h2>
 <br>
+<% if flash[:notice].present? %>
+  <p class='mb mt alert alert-warning'><%= flash[:notice] %></p>
+<% end %>
 <% @post.each do |post| %>
 <div class="alert alert-dark">
   <h3><%=  post.title %></h3>
