@@ -2,18 +2,16 @@
 <h2 class="text-center">All posts</h2>
 <br>
 <% if flash[:notice].present? %>
-  <p class='mb mt alert alert-warning'><%= flash[:notice] %></p>
+    <p class='mb mt alert alert-warning'><%= flash[:notice] %></p>
 <% end %>
+
 <% @post.each do |post| %>
-<div class="alert alert-dark">
-  <h3><%=  post.title %></h3>
-  <div class="container-fluid" style="height: 20rem;">
-
-
-  <p class="overflow-hidden" style="height: 20rem;"><%=  post.body %></p>
+  <div class="alert alert-dark">
+      <h3><%=  post.title %></h3>
+          <div class="container-fluid" style="height: 20rem;">
+              <p class="overflow-hidden" style="height: 20rem;"><%=  post.body %></p>
+          </div>
+      <hr>
+      <%= link_to "read more...", post_path(post), :class =>'btn btn-danger' %>
   </div>
-  <hr>
-  <%= link_to "read more...", post_path(post), :class =>'btn btn-danger' %>
-
-</div>
 <% end %>

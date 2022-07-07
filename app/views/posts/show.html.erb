@@ -1,70 +1,63 @@
-<html>
 
-<!-- Кодировка веб-страницы -->
-<meta charset="utf-8">
-<!-- Настройка viewport -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Title -->
+  <br>
+  <h1 class="text-center"><%= @post.title %></h1>
+  <br>
 
-<%= javascript_include_tag "application" %>
-<head>
-<!-- Title -->
-<br>
-<h1 class="text-center"><%= @post.title %></h1>
-<br>
-</head>
 <!-- Body -->
 <body>
 
-
-<div class="card">
+  <div class="card">
     <div class="col-half-offset bg-dark text-white container-fluid">
 
-            <p> <%= simple_format(@post.body) %> </p>
+      <p> <%= simple_format(@post.body) %> </p>
 
     </div>
-</div>
+  </div>
 
-<!-- Buttons -->
-<hr>
-    <div class="alert alert-light">
-        <%= link_to "Edit post", edit_post_path(@post),form: { data: { confirm: 'Are you sure?' } } ,  class: "btn btn-outline-warning" %>
-        <%= button_to 'Delete post', post_path(@post), method: :delete, form: { data: { 'turbo-confirm': 'Are you sure?' } } ,:class => "btn btn-outline-danger"%>
-    </div>
-<% if flash[:notice].present? %>
+  <!-- Buttons -->
+  <hr>
+  <div class="alert alert-light">
+    <%= link_to "Edit post", edit_post_path(@post),  class: "btn btn-outline-warning" %>
+    <%= button_to 'Delete post', post_path(@post), method: :delete,
+    form: {data: {turbo_confirm: 'Are you sure?'}}, :class => "btn btn-outline-danger"%>
+
+
+  </div>
+  <% if flash[:notice].present? %>
   <p class='mb mt alert alert-warning'><%= flash[:notice] %></p>
-<% end %>
+  <% end %>
 
-<!-- Comments -->
+  <!-- Comments -->
 
-<hr>
-<br>
-<h3 class="text-center">All Comments</h3><br>
-<% @post.comments.each do |comment| %>
-<div class="alert alert-light">
-  <h5><strong><%=  comment.username %></strong>: <%= comment.body %></h5>
-</div>
-<% end %>
+  <hr>
+  <br>
+  <h3 class="text-center">All Comments</h3><br>
+  <% @post.comments.each do |comment| %>
+  <div class="alert alert-light">
+    <h5><strong><%=  comment.username %></strong>: <%= comment.body %></h5>
+  </div>
+  <% end %>
 
 
 
-<hr>
-<br>
-<h4>Add your Comment</h4>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-<p>
+  <hr>
+  <br>
+  <h4>Add your Comment</h4>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>
     Username <br>
     <%= f.text_field(:username, {:class => 'form-control'}) %>
-</p>
+  </p>
 
-<p>
+  <p>
     Text <br>
     <%= f.text_area(:body, {:class => 'form-control'}) %>
-</p>
+  </p>
 
-<p>
+  <p>
     <%= f.submit("Add your comment", {:class => 'btn btn-success'}) %>
-</p>
+  </p>
 
-<% end %>
+  <% end %>
 </body>
-</html>
